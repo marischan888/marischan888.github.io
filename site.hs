@@ -1,7 +1,32 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
-import           Hakyll
+import Hakyll
+    ( getResourceBody,
+      makeItem,
+      loadAll,
+      defaultConfiguration,
+      copyFileCompiler,
+      fromList,
+      idRoute,
+      setExtension,
+      compile,
+      create,
+      match,
+      route,
+      hakyllWith,
+      compressCssCompiler,
+      relativizeUrls,
+      pandocCompiler,
+      constField,
+      dateField,
+      defaultContext,
+      listField,
+      applyAsTemplate,
+      loadAndApplyTemplate,
+      templateCompiler,
+      recentFirst,
+      Configuration(destinationDirectory),
+      Context )
 
 --------------------------------------------------------------------------------
 config :: Configuration
@@ -10,7 +35,7 @@ config = defaultConfiguration
   }
 --------------------------------------------------------------------------------
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
