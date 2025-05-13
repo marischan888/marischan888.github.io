@@ -4,7 +4,8 @@ name:                MarisBlog
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/MarisBlog#readme
+-- homepage:            https://github.com/githubuser/MarisBlog#readme
+homepage:            https://marischan888.github.io/
 license:             BSD-3-Clause
 license-file:        LICENSE
 author:              Author name here
