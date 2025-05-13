@@ -8,9 +8,9 @@ version:             0.1.0.0
 homepage:            https://marischan888.github.io/
 license:             BSD-3-Clause
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2025 Author name here
+author:              Maris Chen
+maintainer:          chenq84@mcmaster.ca
+copyright:           2025 Maris Chen
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
