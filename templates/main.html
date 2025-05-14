@@ -1,0 +1,20 @@
+<!-- Post Header -->
+<main>
+    <div class="box heading">
+            <h1>
+                $if(project_title)$
+                $project_title$
+                $else$
+                $title$
+                $endif$
+            </h1>
+    </div>
+    <div class="box content">
+        $body$
+        $if(gallery)$
+        $partial("templates/gallery.html")$
+        $endif$
+        $partial("templates/image-modal.html")$
+    </div>
+
+</main>

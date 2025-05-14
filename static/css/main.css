@@ -1,0 +1,270 @@
+/* main */
+main {
+    grid-area: main;
+    display: grid;
+    grid-row-gap: 2em;
+}
+
+h1 {
+    width: fit-content;
+    border-bottom: 0.15em solid;
+    grid-column: 2;
+}
+
+h3 {
+    margin-top: 3em;
+}
+
+h4 {
+    border-bottom: 0.15em solid;
+}
+
+.heading {
+    margin: 1em 0;
+}
+
+.content {
+    font-size: 1.2em;
+}
+
+/* gallery */
+.heading,
+.gallery-header-wrapper,
+.gallery-content-wrapper {
+    display: grid;
+    grid-template-rows: max-content;
+}
+
+.gallery-header,
+.gallery-content {
+    grid-column: 2;
+}
+
+.gallery-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.gallery-item {
+    box-shadow: 0 0.3em 0.5em 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.gallery-item>a {
+    text-decoration: none;
+}
+
+.gallery-item>a>img {
+    width: 100%;
+}
+
+.gallery-text {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1em 1em 2em 1em;
+    font-size: 0.9em;
+}
+
+.gallery-text>h4 {
+    margin-bottom: 0.5em;
+}
+
+/* project pages */
+.article {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.paragraph:nth-child(odd) {
+    background-color: #eceff1;
+}
+
+.text h2 {
+    font-size: 1.2em;
+}
+
+.image {
+    position: relative;
+    cursor: pointer;
+    height: fit-content;
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 0.5em;
+}
+
+.image>p>img {
+    object-fit: contain;
+    object-position: top;
+    width: 100%;
+    max-height: 20em;
+}
+
+.caption {
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.video {
+    min-width: 30vw;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video>iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* image-modal */
+.modal {
+    display: none;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 70vw 1fr;
+    grid-template-rows: 1fr 70vh 1fr;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.modal-content {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content>img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.modal-caption {
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-close {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin: 2em 2em 0 0;
+}
+
+.modal-close>span>i:hover {
+    cursor: pointer;
+}
+
+/* platform specific */
+@media screen and (max-width: 1199px) {
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 500;
+    }
+
+    main {
+        font-size: 0.8em;
+    }
+
+    .content,
+    .heading {
+        grid-gap: 0;
+    }
+
+    .heading,
+    .gallery-header-wrapper,
+    .gallery-content-wrapper {
+        grid-template-columns: [col] 1fr [col] 90% [col] 1fr;
+    }
+
+    /* gallery */
+    .gallery-content {
+        grid-gap: 2em;
+        margin-bottom: 5vw;
+    }
+
+    .gallery-text {
+        font-size: 1em;
+    }
+
+    /* project pages */
+    .paragraph {
+        grid-column: 2;
+        display: grid;
+        grid-gap: 3em;
+        padding: 4em 5vw;
+        grid-template-rows: auto;
+    }
+
+    .text {
+        grid-row: 1;
+    }
+
+    .image {
+        grid-row: 2;
+    }
+
+    .paragraph:only-child>.image {
+        grid-row: 1;
+    }
+
+    .paragraph:only-child>.text {
+        grid-row: 2;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    .heading,
+    .gallery-header-wrapper,
+    .gallery-content-wrapper {
+        grid-template-columns: [col] 1fr [col] 70% [col] 1fr;
+    }
+
+    /* gallery */
+    .gallery-content {
+        grid-gap: 3em;
+        margin-bottom: 3em;
+    }
+
+    .gallery-item:hover {
+        opacity: 0.5;
+        transition: .3s ease;
+    }
+
+    /* project pages */
+    .article {
+        margin-top: 2em;
+    }
+
+    .paragraph {
+        display: grid;
+        grid-template-columns: [col] 1fr [col] 30% [col] 30% [col] 1fr;
+        grid-gap: 10%;
+        padding-top: 3em;
+        padding-bottom: 6em;
+    }
+
+    .paragraph:nth-child(odd)>.text,
+    .paragraph:nth-child(even)>.image {
+        grid-column: 2;
+    }
+
+    .paragraph:nth-child(odd)>.image,
+    .paragraph:nth-child(even)>.text {
+        grid-column: 3;
+    }
+}

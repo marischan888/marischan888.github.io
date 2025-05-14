@@ -1,1 +1,1 @@
-# MarisBlog
+This website is created by following the pattern [CleanMagic-hakyll](https://github.com/katychuang/CleanMagic-hakyll/tree/master).
