@@ -8,18 +8,29 @@
     </span>
     <ul class="main-nav" id="js-menu">
         <li>
-            <!-- <a class="nav-links" href="/about.html">about</a> -->
-             <a >about</a>
+            <a class="nav-links" href="/index.html">about</a>
         </li>
         <li class="dropdown">
             <span class="nav-links" id="js-navbar-projects-toggle">projects</span>
             <ul class="dropdown-content" id="js-projects-menu">
                 $for(projects)$
                 <li>
-                    <a class="nav-links" href="/$slug$.html">$slug$</a>
+                    <a class="nav-links" href="/projects/$slug$.html">$slug$</a>
                 </li>
                 $endfor$
             </ul>
+        </li>
+        <li class="dropdown">
+          <span class="nav-links" id="js-navbar-blogs-toggle">blogs</span>
+          <ul class="dropdown-content" id="js-blogs-menu">
+            <!-- $if(blogs)$ -->
+              $for(blogs)$
+                <li>
+                  <a class="nav-links" href="/blogs/$slug$.html">$slug$</a>
+                </li>
+              $endfor$
+            <!-- $endif$ -->
+          </ul>
         </li>
         <li>
             <a class="nav-links" href="/static/doc/Resume.pdf">resume</a>

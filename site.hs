@@ -11,23 +11,24 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
     
-    match "pages/projects/*" $ version "meta" $ do
+    match "pages/*/*" $ version "meta" $ do
         route idRoute
         compile getResourceBody
 
     match "pages/**" $ do
         route $
-            gsubRoute "pages/" (const "")
-            `composeRoutes` gsubRoute "projects/" (const "")
-            `composeRoutes` setExtension "html"
+            gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
         compile $ do
             postList <- loadAll ("pages/projects/*" .&&. hasVersion "meta")
             let projectsCtx = listField "projects" siteCtx (return postList) <> siteCtx
+            bloList <- loadAll ("pages/blogs/*" .&&. hasVersion "meta")
+            let blogsCtx = listField "blogs" siteCtx (return bloList) <> siteCtx
+            let combineCtx = mconcat [projectsCtx, blogsCtx]
             getResourceBody
                 >>= applyAsTemplate projectsCtx
                 >>= renderPandoc
                 >>= loadAndApplyTemplate "templates/main.html"    projectsCtx
-                >>= loadAndApplyTemplate "templates/default.html" projectsCtx
+                >>= loadAndApplyTemplate "templates/default.html" combineCtx
                 >>= relativizeUrls
 
     -- HTML templates like footer, head, etc.
@@ -50,7 +51,6 @@ siteCtx =
 -- Display
 config :: Configuration
 config = defaultConfiguration
-  { previewHost = "0.0.0.0",
-    previewPort = 35730,
+  {
     destinationDirectory = "docs"
   }

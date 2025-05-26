@@ -3,6 +3,8 @@ var navBarToggle = document.getElementById("js-navbar-toggle")
 var imageContainers = [...document.getElementsByClassName("image")]
 var projectsNav = document.getElementById("js-navbar-projects-toggle")
 var projectsDropdown = document.getElementById("js-projects-menu")
+var blogsNav = document.getElementById("js-navbar-blogs-toggle");
+var blogsDropdown = document.getElementById("js-blogs-menu");
 
 /**
  * image caption on click for mobile and image modal for click on medium to large devices
